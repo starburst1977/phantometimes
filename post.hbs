@@ -1,0 +1,93 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+
+<header class="main-header post-head">
+    <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
+        <a class="back-button icon-arrow-left" href="{{@blog.url}}"><i class="fa fa-home"></i></a>
+        <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/"><i class="fa fa-rss"></i></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="{{post_class}}">
+
+        <header class="post-header">
+            <h1 class="post-title">{{title}}</h1>
+            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        </header>
+        
+        {{#if image}}
+            <div class="article-image" style="background-image: url({{image}})">
+                Article Image
+            </div>
+        {{/if}}
+        <div class="wrapper">
+            
+            <section class="post-content">
+                {{content}}
+            </section>
+            
+            <div class="post-sidebar">
+                <div class="item share">
+                    <h4>Share</h4>
+                    <a class="icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </div>
+                {{#author}}
+                <div class="item author">
+                    <h4>Written by</h4>
+                    {{#if image}}
+                    <figure class="author-image">
+                        <a class="img" href="{{url}}" style="background-image: url({{image}})">
+                            <span class="hidden">{{name}}'s Picture</span>
+                        </a>
+                    </figure>
+                    {{/if}}
+                    <a href="{{url}}" class="author-name">{{name}}</a>
+                    {{#if bio}}
+                        <p>{{bio}}</p>
+                    {{else}}
+                        <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                    {{/if}}
+                    <div class="author-meta">
+                        {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
+                        {{#if website}} · <span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+                    </div>
+                    
+                </div>
+                {{/author}}
+                <div class="item tags">
+                    <h4>Tagged</h4>
+                    {{tags}}
+                </div>
+                
+            </div>
+        </div>
+        
+
+    </article>
+    <header class="main-header post-head">
+        <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
+            <a class="back-button icon-arrow-left" href="{{@blog.url}}"><i class="fa fa-home"></i></a>
+            <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/"><i class="fa fa-rss"></i></a>
+        </nav>
+    </header>
+</main>
+
+{{/post}}

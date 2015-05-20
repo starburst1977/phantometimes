@@ -1,0 +1,55 @@
+{{! Previous/next page links - only displayed on page 2+ }}
+<div class="cf">
+
+<div class="pagination-top">
+    {{pagination}}
+</div>
+
+
+{{! This is the post loop - each post will be output using this markup }}
+{{#foreach posts}}
+        
+    {{^is "paged"}}
+        {{#if @first}}
+            
+        {{else}}
+        
+            {{#if featured}}
+            
+            {{else}}
+                <article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+                    <div class="article-item">
+                    
+                        <header class="post-header">
+                            <h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
+                        </header>
+                        <section class="post-excerpt" itemprop="description">
+                            <p><a href="{{url}}" itemprop="url">{{excerpt characters="200"}}&hellip;</a></p>
+                        </section>
+                    </div>
+                </article>
+            {{/if}}
+        {{/if}}
+    {{else}}
+        {{#if featured}}
+        {{else}}
+            <article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+                <div class="article-item">
+                
+                    <header class="post-header">
+                        <h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
+                    </header>
+                    <section class="post-excerpt" itemprop="description">
+                        <p><a href="{{url}}" itemprop="url">{{excerpt characters="200"}}&hellip;</a></p>
+                    </section>
+                </div>
+            </article>
+        {{/if}}
+    {{/is}}
+{{/foreach}}
+</div>
+
+
+
+{{! Previous/next page links - displayed on every page }}
+<!--{{pagination}}-->

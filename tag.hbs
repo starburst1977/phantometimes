@@ -1,0 +1,37 @@
+
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The big featured header }}
+<header class="main-header">
+    <!--<div class="main-nav__logo">
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}" style="background-image: url({{@blog.logo}})"></a>{{/if}}
+    </div>-->
+    <nav class="main-nav__subscribe">
+        <a class="back-button icon-arrow-left" href="{{@blog.url}}"><i class="fa fa-home"></i></a>
+        <a class="icon-feed" href="{{@blog.url}}/tag/{{tag.slug}}/rss/"><i class="fa fa-rss"></i></a>
+    </nav>
+    <nav class="main-nav__social">
+        <a class="icon-twitter" href="#"><i class="fa fa-twitter"></i></a>
+        <a class="icon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+        <a class="icon-github" href="#"><i class="fa fa-github"></i></a>
+    </nav>
+    <div class="main-nav__title">
+        <h1 class="page-title">{{tag.name}}</h1>
+        <h2 class="page-description">All {{pagination.total}} posts tagged with "{{tag.name}}".</h2>
+        <!--<h2 class="page-description">{{@blog.description}}</h2>-->
+    </div>
+</header>
+
+{{! The main content area on the homepage }}
+
+<section class="content" role="main">
+    {{> "loop"}}
+    <h4 class="feature-headline">
+        <div class="wrapper">
+            <i class="fa fa-angle-down"></i> Featured Stories
+        </div>
+    </h4>
+    {{> "featured"}}
+</section>
+

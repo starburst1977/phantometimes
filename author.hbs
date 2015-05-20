@@ -1,0 +1,50 @@
+
+
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The big featured header }}
+{{#author}}
+<header class="main-header author-head">
+    <!--<div class="main-nav__logo">
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}" style="background-image: url({{@blog.logo}})"></a>{{/if}}
+    </div>-->
+    <nav class="main-nav__subscribe">
+        <a class="back-button icon-arrow-left" href="{{@blog.url}}"><i class="fa fa-home"></i></a>
+        <a class="icon-feed" href="{{url}}rss/"><i class="fa fa-rss"></i></a>
+    </nav>
+    <nav class="main-nav__social">
+        <a class="icon-twitter" href="#"><i class="fa fa-twitter"></i></a>
+        <a class="icon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+        <a class="icon-github" href="#"><i class="fa fa-github"></i></a>
+    </nav>
+    <div class="main-nav__title">
+        {{#if image}}
+        <figure class="author-image">
+            <div class="img" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></div>
+        </figure>
+        {{/if}}
+        <h1 class="page-title">{{name}}</h1>
+        <h2 class="page-description">{{bio}}</h2>
+        <div class="author-meta">
+            {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
+            {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+        </div>
+        
+    </div>
+</header>
+{{/author}}
+
+{{! The main content area on the homepage }}
+
+<section class="content" role="main">
+    {{> "loop"}}
+    <h4 class="feature-headline">
+        <div class="wrapper">
+            <i class="fa fa-angle-down"></i> Featured Stories
+        </div>
+    </h4>
+    {{> "featured"}}
+</section>
+
+

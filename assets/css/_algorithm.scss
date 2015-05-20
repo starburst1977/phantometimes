@@ -1,0 +1,17 @@
+/* Golden Ratio 1.618 */
+	$golden:	1.618;
+	
+	$base: 		100%;
+	$gld10:		$base / $golden;
+	$gld9:		$base - $gld10;
+	$gld8:		$gld9 / $golden;
+	$gld7:		$gld9 - $gld8;
+	$gld6:		$gld7 / $golden;
+	$gld5:		$gld7 - $gld6;
+	$gld4:		$gld5 / $golden;
+	$gld3:		$gld5 - $gld4;
+	$gld2:		$gld3 / $golden;
+	$gld1:		$gld3 - $gld2;
+	
+	$full:		$base;
+					

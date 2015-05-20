@@ -1,0 +1,1 @@
+var config=require("./../../../../config"),sqlite3=require("sqlite3"),dbfile=config.development.database.connection.filename,db=new sqlite3.Database(dbfile);db.serialize(function(){db.all("select * from tags",function(e,i){console.log(JSON.stringify(i))})}),db.close();

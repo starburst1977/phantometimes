@@ -1,0 +1,46 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The big featured header }}
+<header class="main-header">
+    <!--<div class="main-nav__logo">
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}" style="background-image: url({{@blog.logo}})"></a>{{/if}}
+    </div>-->
+    <nav class="main-nav__subscribe">
+        <a class="icon-feed" href="{{@blog.url}}/rss/"><i class="fa fa-rss"></i></a>
+    </nav>
+    <nav class="main-nav__social">
+        <a class="icon-twitter" href="#"><i class="fa fa-twitter"></i></a>
+        <a class="icon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+        <a class="icon-github" href="#"><i class="fa fa-github"></i></a>
+    </nav>
+    <div class="main-nav__title">
+        <h1 class="page-title">{{@blog.title}}</h1>
+        <!--<h2 class="page-description">{{@blog.description}}</h2>-->
+    </div>
+</header>
+
+{{! The main content area on the homepage }}
+
+<section class="content" role="main">
+    {{> "first"}}
+    {{^is "paged"}}
+        <h4 class="latest-headline">
+        <div class="wrapper">
+            <i class="fa fa-flash"></i> Latest Stories<span>&nbsp;&nbsp;·&nbsp;
+                
+                <!-- Swap this with Information of your choice -->
+                <a href="https://creativemarket.com/Starburst1977/96557-Phantome-Times-modern-publishing" target="_blank">This is a Ghost theme. Get it here.</a>
+                <!-- End Information -->
+                
+        </div>
+    </h4>
+    {{/is}}
+    {{> "loop"}}
+    <h4 class="feature-headline">
+        <div class="wrapper">
+            <i class="fa fa-star"></i> Featured Stories
+        </div>
+    </h4>
+    {{> "featured"}}
+</section>

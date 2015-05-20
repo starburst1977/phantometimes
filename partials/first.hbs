@@ -1,0 +1,30 @@
+{{! This is the post loop - each post will be output using this markup }}
+{{#foreach posts}}
+        
+    {{^is "paged"}}
+        {{#if @first}}
+            <article class="{{post_class}} first" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+                <div class="article-item">
+                    <div class="article-image" style="background-image: url({{image}})">
+                        Article image
+                    </div>
+                    <div class="container">
+                        <div class="wrapper">
+                            
+                            <h5>Now on {{@blog.title}}</h5>
+                            
+                            <header class="post-header">
+                                <h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
+                            </header>
+                            <section class="post-excerpt" itemprop="description">
+                                <p><a href="{{url}}" itemprop="url">{{excerpt characters="200"}}&hellip;</a></p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        {{else}}
+        {{/if}}
+    {{/is}}
+{{/foreach}}
+</div>
