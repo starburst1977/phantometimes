@@ -1,7 +1,9 @@
 # Phantome Times
 
-Thanks for buying my theme. It is a theme for news heavy websites, tending more to be useful for professional publishing. It as custom theme
+This a theme for news heavy websites, tending more to be useful for professional publishing. It as custom theme
  for [Ghost](http://github.com/tryghost/ghost/).
+ 
+Previously I sold it on CreativeMarket. Due to not having enough time anymore to further develop the theme, I open sourced it. Anybody feel free to update and customize it. 
 
 To download, visit the [theme page](https://creativemarket.com/Starburst1977/96557-Phantome-Times/).
 
